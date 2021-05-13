@@ -23,8 +23,9 @@ Running the FLINO Evaluator R-script.
 
 This example may require one to two minutes of computational time to complete.
 > analysisRun = "eRuns_Grid256_Q75NZ_14VS.txt"
+
 > source("Rcode/Run_FLINO_Evaluator.R")
-> 
+
 The output will be saved as
 Results/results_eRuns_Grid256_Q75NZ_14VS.txt
 
@@ -32,6 +33,7 @@ Describe the output
 
 This next example may require five to seven minutes of computational time to complete.
 > analysisRun = "eRuns_NucleiSCA_Q50NZ_14VS.txt"
+
 > source("Rcode/Run_FLINO_Evaluator.R")
 
 The output will be saved as
@@ -42,6 +44,7 @@ Describe the output
 Performing multiple evaluation in a single run.
 This next example may require five to seven minutes of computational time to complete.
 > analysisRun = "eRuns_Grid256_14VS.txt"
+
 > source("Rcode/Run_FLINO_Evaluator.R")
 
 The output will be saved as
