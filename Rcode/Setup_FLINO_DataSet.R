@@ -1,3 +1,4 @@
+options(stringsAsFactors=FALSE)
 
 pathToData = "Data"
 
