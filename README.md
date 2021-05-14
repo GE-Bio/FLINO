@@ -23,7 +23,7 @@ The R-script files provided are dependent upon a number of R packages. These R l
 Download the content of the FLINO repository to your workstation, start a R sesssion, install the required R library dependencies, and then within the R console set the working directory to the location of the FLINO-main directory.
 > setwd(C:\Users\...\FLINO-main)
 
-#### Running the FLINO Evaluator R-script.
+#### Running the Run_FLINO_Evaluator.R script.
 
 This first example may require one to two minutes of computational time to complete. First set the analysisRun parameterby typing the following into the R console. This is providing the file name of the evaluation run input. The evaluation run input files are stored within the **\FLINO-main\eRuns** directory. After setting the analysisRun, then simply run the Run_FLINO_Evaluator.R script:
 
@@ -75,12 +75,10 @@ Data/results_eRuns_FLINO.txt
 Describe the output
 
 
-#### Running the generate FLINO study figures R-script.
+#### Running the Gen_FLINO_Figures.R script.
 
-##### This command will generate plots and figures presenting the FLINO study results. This may require one to two minutes of computational time to complete.
+The Gen_FLINO_Figures.R script will generate plots and figures presenting the FLINO study results. This may require one to two minutes of computational time to complete.
 > source("Rcode/Gen_FLINO_Figures.R")
 
-The output will be saved to the “figures” subdirectory 
+The output of this R script will be saved to the **\FLINO-main\figures** directory. The data presented in **\FLINO-main\figures\Fig_4.tif** is the application of grid-object normalization to BAX staining of three physical TMA slides with 85 samples that include four cell lines.
 
-Describe the output
-Fig_4.tif
