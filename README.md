@@ -1,7 +1,7 @@
 # FLINO
 Copyright (c) 2021 General Electric Company
 
-The immunoFLuorescence Image NOrmalization (FLINO) repository provides R-scripts and data to perform and evaluate image normalizations methods and workflows.
+The immuno**FL**uorescence **I**mage **NO**rmalization (FLINO) repository provides R-scripts and data to perform and evaluate image normalizations methods and workflows.
 The results of the FLINO study have been described in a manuscript that is currently under review and will be cited here once published. This repository contains the data and R-scripts used to generate the results of that analysis. This research was supported by the National Cancer Institute of the National Institutes of Health under award number R01CA208179.
 
 The importance of the FLINO work has relevance to many types of downstream analysis including performing [multi-omics-heterogeneity-analysis (MOHA)](https://github.com/thrive-itcr/multi-omics-heterogeneity-analysis). 
