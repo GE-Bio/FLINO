@@ -1,11 +1,12 @@
 # FLINO
+Copyright (c) 2021 General Electric Company
+
 The immunoFLuorescence Image NOrmalization (FLINO) repository provides R-scripts and data to perform and evaluate image normalizations methods and workflows.
+The results of a FLINO study have been described in a manuscript that is currently under review. This repository contains the data and R-scripts used to perform that analysis and generate the figures. This research was supported by the National Cancer Institute of the National Institutes of Health under award number R01CA208179.
 
-Reference the manuscript.
+The importance of the FLINO work has relevance to downstream analysis including performing multi-omics-heterogeneity-analysis (MOHA). Please refer to https://github.com/thrive-itcr/multi-omics-heterogeneity-analysis 
 
-Reference other repositories (Thrive, and the MOHA method)
-
-The FLINO repository contains approximately 203 MB of data that can be used to represent Virtual Slides and become a ground truth dataset to evaluate alternative normalization methods and workflows.
+The FLINO repository contains approximately 203 MB of data that can be used to represent Virtual Slides and become a ground truth dataset to evaluate alternative normalization methods and workflows. The data consists of 14 rounds of DAPI staining and imaging of the same physical tissue microarray (TMA) slide with 85 samples to represent a ground truth. We abstracted the individual rounds of DAPI staining and imaging to represent virtual slides. Each virtual TMA slide is the exact same 85 physical samples that have undergone a set of experimental conditions that introduce both random variation and systematic offsets between the virtual slides.
 
 Dependencies: The R-script files use the following four library packages:
 library("png")
