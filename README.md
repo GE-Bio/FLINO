@@ -20,7 +20,7 @@ The R-script files provided are dependent upon a number of R libraries. The R pa
 5. [plyr](https://www.rdocumentation.org/packages/plyr/versions/1.8.6)
 6. [png](https://cran.r-project.org/web/packages/png/index.html)
 
-Download the content of the FLINO repository to your workstation, start a R sesssion, install the required R library dependencies, and then within the R console set the working directory to the location of the FLINO-main directory.
+Download the content of the FLINO repository to your workstation, start a R session, install the required R library dependencies, and then within the R console set the working directory to the location of the FLINO-main directory.
 > setwd(C:\Users\...\FLINO-main)
 
 #### Example 1: Running the Run_FLINO_Evaluator.R script.
@@ -31,19 +31,19 @@ This first example may require one to two minutes of computational time to compl
 
 > source("Rcode/Run_FLINO_Evaluator.R")
 
-Upon completion of the R script, the evaluation run output will be saved as a tab delimited text file in the results directory as: **\FLINO-main\Results\results_eRuns_Grid256_Q75NZ_14VS.txt**. The first row contains the column names of all the input parameters as well as the output values. The subsequent rows contain the output values for each evaluation. For this example there is only one evaluation. 
+Upon completion of the R script, the evaluation run output will be saved as a tab delimited text file in the results directory as: **\FLINO-main\Results\results_eRuns_Grid256_Q75NZ_14VS.txt**. The first row contains the column names of all the input parameters as well as the output values. The subsequent rows contain the output values for each evaluation. For this example, there is only one evaluation. 
 
 Several key input parameters for this one evaluation that can be found in the output file include:
 
 * PARM_NORM_METHOD	with the value of **Q75NZ** for 75% quantile normalization excluding zero intensity objects.
 * PARM_SEG_OBJ_NAME	with the value of **Grid256** for using grid objects of size dimension of 256 pixels for normalization.
 * PARM_EVAL_SEG_OBJ_NAME with the value of **NucleiSCA** for using the Nuclei Segmented Cell objects for evaluating the performance of the normalization.
-* PARM_EVAL_DAPI_RNDS with the value of that lists the 14 virutal slides (i.e. 14 rounds of DAPI staining) over which the normalization is being evaluated.
+* PARM_EVAL_DAPI_RNDS with the value of that lists the 14 virtual slides (i.e. 14 rounds of DAPI staining) over which the normalization is being evaluated.
 
 The two key output values for the evaluation include:
 
 * EvalSegObj_SegObjErrCV_RawLogSpace	with the value of 0.673 representing the slide-to-slide batch effect error for the uncorrected images. This error is quantified as the **M**ean of all individual **E**valuation **O**bject - **C**oefficient of **V**ariations (MEO-CV) across the virtual slides. 
-* EvalSegObj_SegObjErrCV_NormLogSpace	with the value of 0.104 representing the error in the evaluation segemented cell objects (i.e. **NucleiSCA**) after normalizing the images using grid objects (**Grid256**) and the 75% quantile normalization (**Q75NZ**) method.
+* EvalSegObj_SegObjErrCV_NormLogSpace	with the value of 0.104 representing the error in the evaluation segmented cell objects (i.e. **NucleiSCA**) after normalizing the images using grid objects (**Grid256**) and the 75% quantile normalization (**Q75NZ**) method.
 
 #### Example 2: Running the Run_FLINO_Evaluator.R script.
 This second example may require five to seven minutes of computational time to complete. The difference between this  example and prior one is that it uses the Nuclei Segmented Cell objects for both normalization and evaluation. The commands are:
@@ -58,7 +58,7 @@ The output from example 2 will be saved as **\FLINO-main\Results\results_eRuns_N
 * PARM_SEG_OBJ_NAME	with the value of **NucleiSCA** for using the Nuclei Segmented Cell objects for normalization.
 * PARM_EVAL_SEG_OBJ_NAME with the value of **NucleiSCA** for using the Nuclei Segmented Cell objects for evaluating the performance of the normalization.
 * EvalSegObj_SegObjErrCV_RawLogSpace	with the value of 0.673 representing the slide-to-slide batch effect error for the uncorrected images. This error is quantified as the **M**ean of all individual **E**valuation **O**bject - **C**oefficient of **V**ariations (MEO-CV) across the virtual slides. 
-* EvalSegObj_SegObjErrCV_NormLogSpace	with the value of 0.0996 representing the error in the evaluation segemented cell objects (i.e. **NucleiSCA**) after normalizing the images using segemented cell objects (**NucleiSCA**) and the 50% quantile normalization (**Q50NZ**) method.
+* EvalSegObj_SegObjErrCV_NormLogSpace	with the value of 0.0996 representing the error in the evaluation segmented cell objects (i.e. **NucleiSCA**) after normalizing the images using segmented cell objects (**NucleiSCA**) and the 50% quantile normalization (**Q50NZ**) method.
 
 #### Example 3: Performing multiple evaluations.
 This next example may require five to seven minutes of computational time to complete. The input file **\FLINO-main\eRuns\eRuns_Grid256_14VS.txt** is a tab delimited file with the first row representing the column names and input parameters for the evaluation run. Each subsequent row represents one evaluation run. There are five evaluation runs. The fourth column name is called **PARM_NORM_METHOD** and is the only change for the five evaluation runs. This input parameter is the normalization method that is being applied to grid objects which is then used to correct the images. The performance of the method is then quantified using the segmented cell evaluation objects. The five normalization methods listed in the input file are:
