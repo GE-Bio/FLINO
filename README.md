@@ -23,27 +23,44 @@ The R-script files provided are dependent upon a number of R libraries. The R pa
 Download the content of the FLINO repository to your workstation, start a R sesssion, install the required R library dependencies, and then within the R console set the working directory to the location of the FLINO-main directory.
 > setwd(C:\Users\...\FLINO-main)
 
-#### Running the Run_FLINO_Evaluator.R script.
+#### Example 1: Running the Run_FLINO_Evaluator.R script.
 
-This first example may require one to two minutes of computational time to complete. First set the analysisRun parameterby typing the following into the R console. This is providing the file name of the evaluation run input. The evaluation run input files are stored within the **\FLINO-main\eRuns** directory. After setting the analysisRun parameter then run the Run_FLINO_Evaluator.R script using the source command:
+This first example may require one to two minutes of computational time to complete. First set the analysisRun parameter to the file name of the evaluation run input. The evaluation run input files are stored within the **\FLINO-main\eRuns** directory. After the analysisRun parameter is defined, the Run_FLINO_Evaluator.R script is run using the source command:
 
 > analysisRun = "eRuns_Grid256_Q75NZ_14VS.txt"
 
 > source("Rcode/Run_FLINO_Evaluator.R")
 
-Upon completion of the script the output will be saved in a results directory as: **\FLINO-main\Results\results_eRuns_Grid256_Q75NZ_14VS.txt**. The output is a tab delimited text file. The first row contains the column names and the subsequent rows contain the output values for each evaluation. This example, includes only one evaluation.
+Upon completion of the R script, the evaluation run output will be saved as a tab delimited text file in the results directory as: **\FLINO-main\Results\results_eRuns_Grid256_Q75NZ_14VS.txt**. The first row contains the column names of all the input parameters as well as the output values. The subsequent rows contain the output values for each evaluation. For this example there is only one evaluation. 
 
-##### This next example may require five to seven minutes of computational time to complete.
+Several key input parameters for this one evaluation that can be found in the output file include:
+
+* PARM_NORM_METHOD	with the value of **Q75NZ** for 75% quantile normalization excluding zero intensity objects.
+* PARM_SEG_OBJ_NAME	with the value of **Grid256** for using grid objects of size dimension of 256 pixels for normalization.
+* PARM_EVAL_SEG_OBJ_NAME with the value of **NucleiSCA** for using the Nuclei Segmented Cell objects for evaluating the performance of the normalization.
+* PARM_EVAL_DAPI_RNDS with the value of that lists the 14 virutal slides (i.e. 14 rounds of DAPI staining) over which the normalization is being evaluated.
+
+The two key output values for the evaluation include:
+
+* EvalSegObj_SegObjErrCV_RawLogSpace	with the value of 0.673 representing the slide-to-slide batch effect error for the uncorrected images. This error is quantified as the **M**ean of all individual **E**valuation **O**bject - **C**oefficient of **V**ariations (MEO-CV) across the virtual slides. 
+* EvalSegObj_SegObjErrCV_NormLogSpace	with the value of 0.104 representing the error in the evaluation segemented cell objects (i.e. **NucleiSCA**) after normalizing the images using grid objects (**Grid256**) and the 75% quantile normalization (**Q75NZ**) method.
+
+#### Example 2: Running the Run_FLINO_Evaluator.R script.
+This second example may require five to seven minutes of computational time to complete. The difference between this  example and prior one is that it uses the Nuclei Segmented Cell objects for both normalization and evaluation. The commands are:
+
 > analysisRun = "eRuns_NucleiSCA_Q50NZ_14VS.txt"
 
 > source("Rcode/Run_FLINO_Evaluator.R")
 
-The output will be saved as
-Results/results_eRuns_NucleiSCA_Q50NZ_14VS.txt
+The output from example 2 will be saved as **\FLINO-main\Results\results_eRuns_NucleiSCA_Q50NZ_14VS.txt**. The key output values for this example 2 evaluation which can be compared to the above example include:
 
-Describe the output
+* PARM_NORM_METHOD	with the value of **Q50NZ** for 50% quantile normalization excluding zero intensity objects.
+* PARM_SEG_OBJ_NAME	with the value of **NucleiSCA** for using the Nuclei Segmented Cell objects for normalization.
+* PARM_EVAL_SEG_OBJ_NAME with the value of **NucleiSCA** for using the Nuclei Segmented Cell objects for evaluating the performance of the normalization.
+* EvalSegObj_SegObjErrCV_RawLogSpace	with the value of 0.673 representing the slide-to-slide batch effect error for the uncorrected images. This error is quantified as the **M**ean of all individual **E**valuation **O**bject - **C**oefficient of **V**ariations (MEO-CV) across the virtual slides. 
+* EvalSegObj_SegObjErrCV_NormLogSpace	with the value of 0.0996 representing the error in the evaluation segemented cell objects (i.e. **NucleiSCA**) after normalizing the images using segemented cell objects (**NucleiSCA**) and the 50% quantile normalization (**Q50NZ**) method.
 
-##### Performing multiple evaluations in a single run.
+#### Example 3: Performing multiple evaluations.
 This next example may require five to seven minutes of computational time to complete. The input file **\FLINO-main\eRuns\eRuns_Grid256_14VS.txt** is a tab delimited file with the first row representing the column names and input parameters for the evaluation run. Each subsequent row represents one evaluation run. There are five evaluation runs. The fourth column name is called **PARM_NORM_METHOD** and is the only change for the five evaluation runs. This input parameter is the normalization method that is being applied to the evaluation data. The five normalization methods being applied are:
 1. TMM - trimmed mean of the M-values (Robinson and Oshlack 2010, Tarazona 2011, 2015)
 2. MRN - median ratio normalization (Maza 2013)
@@ -51,16 +68,23 @@ This next example may require five to seven minutes of computational time to com
 4. Q50NZ - 50% quantile normalization excluding zero intensity objects
 5. MEDIAN - Median normalization
 
-
+The commands for example 3 are:
 
 > analysisRun = "eRuns_Grid256_14VS.txt"
 
 > source("Rcode/Run_FLINO_Evaluator.R")
 
-The output will be saved as
-Results/results_eRuns_Grid256_14VS.txt
+The output from example 3 will be saved as **\FLINO-main\Results\results_eRuns_Grid256_14VS.txt**. The output file will include the performance of the five normalization methods at correcting the slide-to-slide batch effect across 14 virtual slides. The performance for each normalization method is quantified by the DAPI segmented nuclei objects computed error (MEO-CV) and can be found in the output file under the two respective columns **PARM_NORM_METHOD** and **EvalSegObj_SegObjErrCV_NormLogSpace**. 
 
-Describe the output that compares TMM, MRN, etc.
+PARM_NORM_METHOD | EvalSegObj_SegObjErrCV_NormLogSpace
+---------------- | -----------------------------------
+TMM | 0.1067
+MRN | 0.1079
+Q75NZ | 0.1041
+Q50NZ | 0.1067
+MEDIAN | 0.1586
+
+
 
 
 ##### Running all of the FLINO study evaluation runs.  This will take a very long time.
