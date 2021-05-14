@@ -10,7 +10,7 @@ The FLINO repository contains approximately 203 MB of grid object and segmented 
 
 ## Getting Started
 
-The R-script files provided are dependent upon a number of R packages. These R libraries must be installed prior to running the FLINO R-scripts.
+The R-script files provided are dependent upon a number of R libraries. The R packages that must be installed prior to running the FLINO R-scripts include:
 
 #### Dependencies: 
 1. [fCI](https://bioconductor.org/packages/release/bioc/html/fCI.html)
@@ -25,15 +25,13 @@ Download the content of the FLINO repository to your workstation, start a R sess
 
 #### Running the Run_FLINO_Evaluator.R script.
 
-This first example may require one to two minutes of computational time to complete. First set the analysisRun parameterby typing the following into the R console. This is providing the file name of the evaluation run input. The evaluation run input files are stored within the **\FLINO-main\eRuns** directory. After setting the analysisRun, then simply run the Run_FLINO_Evaluator.R script:
+This first example may require one to two minutes of computational time to complete. First set the analysisRun parameterby typing the following into the R console. This is providing the file name of the evaluation run input. The evaluation run input files are stored within the **\FLINO-main\eRuns** directory. After setting the analysisRun parameter then run the Run_FLINO_Evaluator.R script using the source command:
 
 > analysisRun = "eRuns_Grid256_Q75NZ_14VS.txt"
 
 > source("Rcode/Run_FLINO_Evaluator.R")
 
-Upon completion of the script the output will be saved in a results directory as: **\FLINO-main\Results\results_eRuns_Grid256_Q75NZ_14VS.txt**
-
-Describe the output
+Upon completion of the script the output will be saved in a results directory as: **\FLINO-main\Results\results_eRuns_Grid256_Q75NZ_14VS.txt**. The output is a tab delimited text file. The first row contains the column names and the subsequent rows contain the output values for each evaluation. This example, includes only one evaluation.
 
 ##### This next example may require five to seven minutes of computational time to complete.
 > analysisRun = "eRuns_NucleiSCA_Q50NZ_14VS.txt"
