@@ -85,7 +85,7 @@ Q50NZ | 0.1067
 MEDIAN | 0.1586
 
 
-It is possible to run all of the FLINO study evaluations.  This would however take a vary long time if run within a single core.
+It is possible to run all of the FLINO study evaluations.  This would however take a vary long time if run in series on a single core processor.
 
 > analysisRun = " eRuns_FLINO.txt"
 
