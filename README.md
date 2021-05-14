@@ -46,7 +46,15 @@ Results/results_eRuns_NucleiSCA_Q50NZ_14VS.txt
 Describe the output
 
 ##### Performing multiple evaluations in a single run.
-This next example may require five to seven minutes of computational time to complete.
+This next example may require five to seven minutes of computational time to complete. The input file **\FLINO-main\eRuns\eRuns_Grid256_14VS.txt** is a tab delimited file with the first row representing the column names and input parameters for the evaluation run. Each subsequent row represents one evaluation run. There are five evaluation runs. The fourth column name is called **PARM_NORM_METHOD** and is the only change for the five evaluation runs. This input parameter is the normalization method that is being applied to the evaluation data. The five normalization methods being applied are:
+1. TMM - trimmed mean of the M-values (Robinson and Oshlack 2010, Tarazona 2011, 2015)
+2. MRN - median ratio normalization (Maza 2013)
+3. Q75NZ - 75% quantile normalization excluding zero intensity objects
+4. Q50NZ - 50% quantile normalization excluding zero intensity objects
+5. MEDIAN - Median normalization
+
+
+
 > analysisRun = "eRuns_Grid256_14VS.txt"
 
 > source("Rcode/Run_FLINO_Evaluator.R")
