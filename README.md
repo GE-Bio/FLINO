@@ -2,23 +2,26 @@
 Copyright (c) 2021 General Electric Company
 
 The immunoFLuorescence Image NOrmalization (FLINO) repository provides R-scripts and data to perform and evaluate image normalizations methods and workflows.
-The results of a FLINO study have been described in a manuscript that is currently under review. This repository contains the data and R-scripts used to perform that analysis and generate the figures. This research was supported by the National Cancer Institute of the National Institutes of Health under award number R01CA208179.
+The results of the FLINO study have been described in a manuscript that is currently under review and will be cited here once published. This repository contains the data and R-scripts used to generate the results of that analysis. This research was supported by the National Cancer Institute of the National Institutes of Health under award number R01CA208179.
 
-The importance of the FLINO work has relevance to downstream analysis including performing multi-omics-heterogeneity-analysis (MOHA). Please refer to https://github.com/thrive-itcr/multi-omics-heterogeneity-analysis 
+The importance of the FLINO work has relevance to many types of downstream analysis including performing [multi-omics-heterogeneity-analysis (MOHA)](https://github.com/thrive-itcr/multi-omics-heterogeneity-analysis). 
 
 The FLINO repository contains approximately 203 MB of data that can be used to represent Virtual Slides and become a ground truth dataset to evaluate alternative normalization methods and workflows. The data consists of 14 rounds of DAPI staining and imaging of the same physical tissue microarray (TMA) slide with 85 samples to represent a ground truth. We abstracted the individual rounds of DAPI staining and imaging to represent virtual slides. Each virtual TMA slide is the exact same 85 physical samples that have undergone a set of experimental conditions that introduce both random variation and systematic offsets between the virtual slides.
 
-Dependencies: The R-script files use the following four library packages:
-library("png")
-library("stringr")
-library("plyr")   https://www.rdocumentation.org/packages/plyr/versions/1.8.6
-library(fCI)      https://bioconductor.org/packages/release/bioc/html/fCI.html
-library(NOISeq)   https://bioconductor.org/packages/release/bioc/html/NOISeq.html
-library(qsmooth)  https://bioconductor.org/packages/release/bioc/html/qsmooth.html
+## Getting Started
 
-Start R session
-Within the R console
-> setwd(<path to FLINO-main directory>)
+The R-script files provided are dependent upon a number of R packages. These R libraries must be installed prior to running the FLINO R-scripts.
+
+#### Dependencies: 
+1. [fCI](https://bioconductor.org/packages/release/bioc/html/fCI.html)
+2. [NOISeq](https://bioconductor.org/packages/release/bioc/html/NOISeq.html)
+3. [qsmooth](https://bioconductor.org/packages/release/bioc/html/qsmooth.html)
+4. [stringr](https://cran.r-project.org/web/packages/stringr/index.html)
+5. [plyr](https://www.rdocumentation.org/packages/plyr/versions/1.8.6)
+6. [png](https://cran.r-project.org/web/packages/png/index.html)
+
+Download the content of the FLINO repository to your workstation, start a R sesssion, install the required R library dependencies, and then within the R console set the working directory to the location of the FLINO-main directory.
+> setwd(C:\Users\...\FLINO-main)
 
 Running the FLINO Evaluator R-script.
 
