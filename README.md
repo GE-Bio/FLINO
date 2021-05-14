@@ -61,7 +61,7 @@ The output from example 2 will be saved as **\FLINO-main\Results\results_eRuns_N
 * EvalSegObj_SegObjErrCV_NormLogSpace	with the value of 0.0996 representing the error in the evaluation segemented cell objects (i.e. **NucleiSCA**) after normalizing the images using segemented cell objects (**NucleiSCA**) and the 50% quantile normalization (**Q50NZ**) method.
 
 #### Example 3: Performing multiple evaluations.
-This next example may require five to seven minutes of computational time to complete. The input file **\FLINO-main\eRuns\eRuns_Grid256_14VS.txt** is a tab delimited file with the first row representing the column names and input parameters for the evaluation run. Each subsequent row represents one evaluation run. There are five evaluation runs. The fourth column name is called **PARM_NORM_METHOD** and is the only change for the five evaluation runs. This input parameter is the normalization method that is being applied to the evaluation data. The five normalization methods being applied are:
+This next example may require five to seven minutes of computational time to complete. The input file **\FLINO-main\eRuns\eRuns_Grid256_14VS.txt** is a tab delimited file with the first row representing the column names and input parameters for the evaluation run. Each subsequent row represents one evaluation run. There are five evaluation runs. The fourth column name is called **PARM_NORM_METHOD** and is the only change for the five evaluation runs. This input parameter is the normalization method that is being applied to grid objects which is then used to correct the images. The performance of the method is then quantified using the segmented cell evaluation objects. The five normalization methods listed in the input file are:
 1. TMM - trimmed mean of the M-values (Robinson and Oshlack 2010, Tarazona 2011, 2015)
 2. MRN - median ratio normalization (Maza 2013)
 3. Q75NZ - 75% quantile normalization excluding zero intensity objects
@@ -85,16 +85,11 @@ Q50NZ | 0.1067
 MEDIAN | 0.1586
 
 
+It is possible to run all of the FLINO study evaluations.  This would however take a vary long time if run within a single core.
 
-
-##### Running all of the FLINO study evaluation runs.  This will take a very long time.
 > analysisRun = " eRuns_FLINO.txt"
 
-Would not advise running them in series.
-
-Data/results_eRuns_FLINO.txt
-
-Describe the output
+The output for all evaluation runs can be found in the merged output file **\FLINO-main\Data\results_eRuns_FLINO.txt**. This output file is used by the next example.
 
 
 #### Running the Gen_FLINO_Figures.R script.
